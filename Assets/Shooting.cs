@@ -7,33 +7,33 @@ public class Shooting : MonoBehaviour
     public float shootSpeed, shootTimer;
     public Transform shootPos;
     public GameObject bullet;
-    private bool isShooting;
    
    
     // Start is called before the first frame update
    
    
    
-    void Start()
-    {
-        isShooting = false;
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && !isShooting){
+        if(Input.GetKeyDown("space")){
 
-            StartCoroutine(Shoot());
+            Shoot();
         }
         
     }
-    IEnumerator Shoot(){
-        isShooting = true;
+    void Shoot(){
         GameObject newBullet = Instantiate(bullet, shootPos.position, Quaternion.identity);
         newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed * Time.fixedDeltaTime, 0f);
         Debug.Log("Shoot");
-        yield return new WaitForSeconds(shootTimer);
-        isShooting = false;
+        
     }
+    
+    /*private void OnTriggerEnter2D(Collider2D player){
+        Debug.Log("Game Over");
+    }
+*/
+ 
 }

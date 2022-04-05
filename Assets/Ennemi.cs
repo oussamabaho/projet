@@ -27,10 +27,12 @@ public class Ennemi : MonoBehaviour
     
     }
    
-    private void OnTriggerEnter2D(Collider2D player){
+    
+    /*private void OnTriggerEnter2D(Collider2D player){
         
         Debug.Log("Game Over");
     }
-  
+  */
+ 
  
 }
